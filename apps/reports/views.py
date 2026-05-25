@@ -31,7 +31,7 @@ class TopProductsView(APIView):
         top_products = (
             OrderItem.objects.filter(order__status=Order.Status.COMPLETED)
             .values(
-                product_id=F("product__id"),
+                "product_id",
                 product_name=F("product__name"),
                 product_sku=F("product__sku"),
             )
