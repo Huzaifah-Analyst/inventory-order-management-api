@@ -1,6 +1,6 @@
-from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema
+from rest_framework import filters, viewsets
 
 from .models import Product
 from .serializers import ProductSerializer

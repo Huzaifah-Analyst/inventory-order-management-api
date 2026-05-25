@@ -1,4 +1,5 @@
 from django.db import models
+
 from apps.customers.models import Customer
 from apps.products.models import Product
 
@@ -24,12 +25,14 @@ class Order(models.Model):
 
     def recalculate_total(self):
         """Recalculate and persist total_amount from order items."""
-        from django.db.models import Sum, F, DecimalField, ExpressionWrapper
-        total = self.items.aggregate(
-            total=Sum(
-                ExpressionWrapper(F("quantity") * F("price_at_purchase"), output_field=DecimalField())
-            )
-        )["total"] or 0
+        from django.db.models import DecimalField, ExpressionWrapper, F, Sum
+
+        total = (
+            self.items.aggregate(
+                total=Sum(ExpressionWrapper(F("quantity") * F("price_at_purchase"), output_field=DecimalField()))
+            )["total"]
+            or 0
+        )
         self.total_amount = total
         self.save(update_fields=["total_amount"])
 

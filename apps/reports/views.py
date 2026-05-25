@@ -1,8 +1,8 @@
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import serializers
-from django.db.models import Sum, F, DecimalField, ExpressionWrapper
+from django.db.models import DecimalField, ExpressionWrapper, F, Sum
 from drf_spectacular.utils import extend_schema
+from rest_framework import serializers
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.orders.models import Order, OrderItem
 

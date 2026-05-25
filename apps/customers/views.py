@@ -1,5 +1,5 @@
-from rest_framework import viewsets, filters
 from drf_spectacular.utils import extend_schema
+from rest_framework import filters, viewsets
 
 from .models import Customer
 from .serializers import CustomerSerializer

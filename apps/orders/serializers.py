@@ -1,7 +1,8 @@
-from rest_framework import serializers
 from django.db import transaction
+from rest_framework import serializers
 
 from apps.products.models import Product
+
 from .models import Order, OrderItem
 
 
@@ -27,8 +28,14 @@ class OrderReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = (
-            "id", "customer", "customer_name", "status",
-            "total_amount", "items", "created_at", "updated_at",
+            "id",
+            "customer",
+            "customer_name",
+            "status",
+            "total_amount",
+            "items",
+            "created_at",
+            "updated_at",
         )
 
 
