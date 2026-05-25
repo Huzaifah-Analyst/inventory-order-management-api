@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import serializers
 from django.db.models import Sum, F, DecimalField, ExpressionWrapper
-from drf_spectacular.utils import extend_schema, OpenApiResponse, inline_serializer
+from drf_spectacular.utils import extend_schema
 
 from apps.orders.models import Order, OrderItem
 
