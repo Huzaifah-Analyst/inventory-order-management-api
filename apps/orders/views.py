@@ -5,11 +5,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from .models import Order
-from .serializers import (
-    OrderCreateSerializer,
-    OrderReadSerializer,
-    OrderStatusUpdateSerializer,
-)
+from .serializers import OrderCreateSerializer, OrderReadSerializer, OrderStatusUpdateSerializer
 
 
 @extend_schema(tags=["Orders"])
