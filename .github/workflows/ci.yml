@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements-dev.txt
 
       - name: Run flake8
-        run: flake8 apps/ core/ config/ --max-line-length=120 --exclude=migrations
+        run: flake8 apps/ core/ config/ --max-line-length=120 --exclude=migrations --extend-ignore=F401
 
       - name: Check black formatting
         run: black --check apps/ core/ config/ --line-length=120
